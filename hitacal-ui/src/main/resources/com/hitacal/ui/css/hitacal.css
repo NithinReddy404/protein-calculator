@@ -1,0 +1,330 @@
+/* ── hitacal AI — Coffee Theme CSS ──────────────────────────────── */
+
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-base: #F5ECD7;
+    -fx-background: #F5ECD7;
+    -hitacal-espresso:     #3B1F0E;
+    -hitacal-coffee:       #6B3A2A;
+    -hitacal-latte:        #C49A6C;
+    -hitacal-cream:        #F5ECD7;
+    -hitacal-parchment:    #FDF6EC;
+    -hitacal-turtle-green: #4A7C59;
+    -hitacal-amber:        #8B6914;
+}
+
+/* ── Root pane ──────────────────────────────────────────────────── */
+.root-pane {
+    -fx-background-color: #F5ECD7;
+}
+
+/* ── Login Screen ───────────────────────────────────────────────── */
+.login-bg {
+    -fx-background-color: linear-gradient(to bottom, #3B1F0E 0%, #6B3A2A 40%, #F5ECD7 100%);
+    -fx-min-height: 580px;
+    -fx-padding: 40 0 40 0;
+}
+
+.login-card {
+    -fx-background-color: #FDF6EC;
+    -fx-background-radius: 18;
+    -fx-border-color: #C49A6C;
+    -fx-border-width: 2;
+    -fx-border-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(59,31,14,0.45), 24, 0, 0, 6);
+    -fx-padding: 32 36 32 36;
+}
+
+.login-title {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3B1F0E;
+    -fx-font-family: "Georgia", serif;
+}
+
+.login-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8B6914;
+    -fx-font-style: italic;
+}
+
+/* ── Top bar ────────────────────────────────────────────────────── */
+.top-bar {
+    -fx-background-color: #3B1F0E;
+    -fx-padding: 8 16 8 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 8, 0, 0, 2);
+}
+
+.app-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #C49A6C;
+    -fx-font-family: "Georgia", serif;
+}
+
+.greeting-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #F5ECD7;
+    -fx-font-style: italic;
+}
+
+/* ── Panels ─────────────────────────────────────────────────────── */
+.left-panel {
+    -fx-background-color: #6B3A2A;
+    -fx-min-width: 240px;
+}
+
+.center-panel {
+    -fx-background-color: #FDF6EC;
+    -fx-border-color: transparent #C49A6C transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.right-panel {
+    -fx-background-color: #F0E0C8;
+    -fx-min-width: 240px;
+}
+
+.goal-pane, .admin-pane {
+    -fx-background-color: #FDF6EC;
+}
+
+/* ── Labels ─────────────────────────────────────────────────────── */
+.date-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #F5ECD7;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+.streak-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 4, 0, 0, 1);
+}
+
+.motivation-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #F5ECD7;
+    -fx-font-style: italic;
+    -fx-padding: 0 4 0 4;
+}
+
+.section-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3B1F0E;
+    -fx-font-family: "Georgia", serif;
+}
+
+.nutrient-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6B3A2A;
+}
+
+.nutrient-value {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3B1F0E;
+}
+
+.goal-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #C49A6C;
+    -fx-font-style: italic;
+}
+
+.form-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #3B1F0E;
+    -fx-font-weight: bold;
+}
+
+.projection-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #4A7C59;
+    -fx-font-weight: bold;
+    -fx-padding: 8;
+    -fx-background-color: #E0F0E8;
+    -fx-background-radius: 6;
+}
+
+.bmi-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6B3A2A;
+    -fx-font-style: italic;
+}
+
+.preview-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #4A7C59;
+    -fx-font-style: italic;
+}
+
+.disclaimer-label {
+    -fx-font-size: 10px;
+    -fx-text-fill: #AAAAAA;
+    -fx-font-style: italic;
+}
+
+.error-label {
+    -fx-text-fill: #CC2200;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.warning-label {
+    -fx-text-fill: #CC6600;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 6;
+    -fx-background-color: #FFF0CC;
+    -fx-background-radius: 4;
+}
+
+.link-label {
+    -fx-text-fill: #8B6914;
+    -fx-font-size: 12px;
+    -fx-underline: true;
+}
+
+/* ── Inputs ──────────────────────────────────────────────────────── */
+.hitacal-input {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #C49A6C;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-width: 1.5;
+    -fx-padding: 7 10 7 10;
+    -fx-text-fill: #2C1A0E;
+    -fx-prompt-text-fill: #AAAAAA;
+}
+
+.hitacal-input:focused {
+    -fx-border-color: #6B3A2A;
+    -fx-effect: dropshadow(gaussian, rgba(107,58,42,0.3), 6, 0, 0, 0);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+.primary-btn {
+    -fx-background-color: #3B1F0E;
+    -fx-text-fill: #F5ECD7;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 9 20 9 20;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.primary-btn:hover {
+    -fx-background-color: #6B3A2A;
+    -fx-effect: dropshadow(gaussian, rgba(59,31,14,0.4), 8, 0, 0, 2);
+}
+
+.secondary-btn {
+    -fx-background-color: #C49A6C;
+    -fx-text-fill: #3B1F0E;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 9 18 9 18;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.secondary-btn:hover {
+    -fx-background-color: #8B6914;
+    -fx-text-fill: #FFFFFF;
+}
+
+.danger-btn {
+    -fx-background-color: #CC4400;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 7 14 7 14;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.danger-btn:hover {
+    -fx-background-color: #AA2200;
+}
+
+/* ── Progress bars ───────────────────────────────────────────────── */
+.cal-bar .track {
+    -fx-background-color: #E0D0C0;
+    -fx-background-radius: 4;
+}
+.cal-bar .bar {
+    -fx-background-color: linear-gradient(to right, #4A7C59, #8BCC90);
+    -fx-background-radius: 4;
+}
+
+.protein-bar .track {
+    -fx-background-color: #E0D0C0;
+    -fx-background-radius: 4;
+}
+.protein-bar .bar {
+    -fx-background-color: linear-gradient(to right, #6B3A2A, #C49A6C);
+    -fx-background-radius: 4;
+}
+
+/* ── Lists ───────────────────────────────────────────────────────── */
+.food-list, .entries-list {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #C49A6C;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.food-list .list-cell, .entries-list .list-cell {
+    -fx-background-color: #FDF6EC;
+    -fx-text-fill: #2C1A0E;
+    -fx-padding: 5 10 5 10;
+}
+
+.food-list .list-cell:odd, .entries-list .list-cell:odd {
+    -fx-background-color: #F0E0C8;
+}
+
+.food-list .list-cell:selected, .entries-list .list-cell:selected {
+    -fx-background-color: #6B3A2A;
+    -fx-text-fill: #F5ECD7;
+}
+
+/* ── Table ───────────────────────────────────────────────────────── */
+.table-view {
+    -fx-background-color: #FDF6EC;
+    -fx-border-color: #C49A6C;
+}
+
+.table-view .column-header {
+    -fx-background-color: #6B3A2A;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: #FDF6EC;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #F0E0C8;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #6B3A2A;
+    -fx-text-fill: white;
+}
+
+/* ── Separator ───────────────────────────────────────────────────── */
+.separator .line {
+    -fx-border-color: #C49A6C;
+    -fx-border-width: 1 0 0 0;
+}

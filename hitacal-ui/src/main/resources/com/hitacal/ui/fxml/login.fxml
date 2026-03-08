@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.hitacal.ui.LoginController"
+           styleClass="root-pane"
+           prefWidth="480" prefHeight="580">
+
+    <VBox alignment="CENTER" spacing="0" styleClass="login-bg">
+        <!-- Hero card -->
+        <VBox fx:id="loginCard" alignment="CENTER" spacing="14"
+              styleClass="login-card" maxWidth="380">
+
+            <!-- Turtle mascot -->
+            <StackPane fx:id="turtleContainer" prefWidth="160" prefHeight="160"/>
+
+            <!-- Title -->
+            <Label fx:id="titleLabel" text="hitacal AI" styleClass="login-title"/>
+            <Label text="Your personalized nutrition companion 🐢" styleClass="login-subtitle"/>
+
+            <Separator/>
+
+            <!-- Username -->
+            <TextField fx:id="usernameField" promptText="Username"
+                       styleClass="hitacal-input" maxWidth="300"/>
+
+            <!-- Register-only fields -->
+            <VBox fx:id="registerFields" spacing="10" visible="false" managed="false">
+                <TextField fx:id="displayNameField" promptText="Your name (e.g. Hita)"
+                           styleClass="hitacal-input" maxWidth="300"/>
+            </VBox>
+
+            <!-- Password -->
+            <PasswordField fx:id="passwordField" promptText="Password"
+                           styleClass="hitacal-input" maxWidth="300"/>
+
+            <!-- Error label -->
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" maxWidth="300"/>
+
+            <!-- Login button -->
+            <Button fx:id="loginBtn" text="Login" onAction="#onLogin"
+                    styleClass="primary-btn" maxWidth="300"/>
+
+            <!-- Toggle -->
+            <Label fx:id="toggleLabel" text="New here? Create Account"
+                   styleClass="link-label" onMouseClicked="#onToggleRegister"
+                   style="-fx-cursor: hand;"/>
+
+            <Separator/>
+            <Label text="⚠ Local auth only — not equivalent to online security"
+                   styleClass="disclaimer-label" wrapText="true" maxWidth="320"/>
+        </VBox>
+    </VBox>
+</StackPane>

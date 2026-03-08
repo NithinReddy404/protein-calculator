@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hitacal.ui.GoalSetupController"
+            stylesheets="@../css/hitacal.css"
+            style="-fx-background-color: #F5ECD7;">
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="16">
+            <Label text="🐢  hitacal AI — Goal Setup" styleClass="header-title"/>
+            <Button text="← Back" onAction="#onBack" styleClass="btn-secondary"
+                    style="-fx-text-fill:white; -fx-border-color:white;" HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <VBox spacing="20" style="-fx-padding: 30; -fx-max-width: 700;" maxWidth="700">
+
+                <!-- Weight Info -->
+                <VBox styleClass="card" spacing="14">
+                    <Label text="Weight Information" styleClass="label-section"/>
+                    <HBox spacing="20">
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="Current Weight (kg)" style="-fx-font-weight:bold; -fx-text-fill:#6B3A2A;"/>
+                            <TextField fx:id="startWeightField" promptText="e.g. 75.0"/>
+                        </VBox>
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="Target Weight (kg)" style="-fx-font-weight:bold; -fx-text-fill:#6B3A2A;"/>
+                            <TextField fx:id="targetWeightField" promptText="e.g. 65.0"/>
+                        </VBox>
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="Height (cm) — optional" style="-fx-font-weight:bold; -fx-text-fill:#6B3A2A;"/>
+                            <TextField fx:id="heightField" promptText="e.g. 165"/>
+                        </VBox>
+                    </HBox>
+                    <Label fx:id="bmiLabel" text="" style="-fx-text-fill:#4A7C59; -fx-font-style:italic;"/>
+                </VBox>
+
+                <!-- Rate & Activity -->
+                <VBox styleClass="card" spacing="14">
+                    <Label text="Loss Rate &amp; Activity" styleClass="label-section"/>
+                    <HBox spacing="20">
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="Weekly Loss Rate" style="-fx-font-weight:bold; -fx-text-fill:#6B3A2A;"/>
+                            <ComboBox fx:id="rateCombo" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="Activity Level" style="-fx-font-weight:bold; -fx-text-fill:#6B3A2A;"/>
+                            <ComboBox fx:id="activityCombo" maxWidth="Infinity"/>
+                        </VBox>
+                    </HBox>
+                    <Label fx:id="rateWarningLabel" text="" style="-fx-text-fill:#8B1A1A; -fx-font-style:italic;"/>
+                </VBox>
+
+                <!-- Live Preview -->
+                <VBox styleClass="card" spacing="10" fx:id="previewCard">
+                    <Label text="Your Projection" styleClass="label-section"/>
+                    <Label fx:id="projDateLabel"  text="Projected date: —" style="-fx-font-size:15px; -fx-text-fill:#3B1F0E;"/>
+                    <Label fx:id="calTargetLabel" text="Daily calorie target: —" style="-fx-font-size:15px; -fx-text-fill:#4A7C59;"/>
+                    <Label fx:id="weeksLabel"     text="" style="-fx-text-fill:#6B3A2A;"/>
+                    <Label text="⚠ Projection assumes consistent tracking and is not a medical guarantee. Consult a healthcare professional before starting any weight-loss program."
+                           styleClass="label-disclaimer"/>
+                </VBox>
+
+                <Label fx:id="errorLabel" text="" style="-fx-text-fill:#8B1A1A;" wrapText="true"/>
+                <Button text="Save Goal  🐢" onAction="#onSave" styleClass="btn-primary" maxWidth="Infinity"/>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

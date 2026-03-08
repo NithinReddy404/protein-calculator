@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hitacal.ui.AdminController"
+            stylesheets="@../css/hitacal.css"
+            style="-fx-background-color: #F5ECD7;">
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="16">
+            <Label text="🐢  hitacal AI — Admin Dashboard" styleClass="header-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Back" onAction="#onBack" styleClass="btn-secondary" style="-fx-text-fill:white; -fx-border-color:white;"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="16" style="-fx-padding: 20;">
+            <!-- Stats row -->
+            <HBox spacing="16">
+                <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="6">
+                    <Label text="Total Users" styleClass="label-section"/>
+                    <Label fx:id="totalUsersLabel" text="0" style="-fx-font-size:28px; -fx-font-weight:bold; -fx-text-fill:#3B1F0E;"/>
+                </VBox>
+                <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="6">
+                    <Label text="Food Items in DB" styleClass="label-section"/>
+                    <Label fx:id="foodCountLabel"  text="0" style="-fx-font-size:28px; -fx-font-weight:bold; -fx-text-fill:#4A7C59;"/>
+                </VBox>
+                <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="6">
+                    <Label text="DB Size" styleClass="label-section"/>
+                    <Label fx:id="dbSizeLabel"     text="—" style="-fx-font-size:28px; -fx-font-weight:bold; -fx-text-fill:#6B3A2A;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Users Table -->
+            <VBox styleClass="card" VBox.vgrow="ALWAYS" spacing="10">
+                <Label text="Users" styleClass="label-section"/>
+                <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colUsername"   text="Username"    prefWidth="140"/>
+                        <TableColumn fx:id="colDisplay"    text="Display Name" prefWidth="160"/>
+                        <TableColumn fx:id="colAdmin"      text="Admin"       prefWidth="60"/>
+                        <TableColumn fx:id="colCreated"    text="Created"     prefWidth="160"/>
+                        <TableColumn fx:id="colLastLogin"  text="Last Login"  prefWidth="160"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button text="Reset Password" onAction="#onResetPassword" styleClass="btn-secondary"/>
+                    <Button text="Export User Excel" onAction="#onExportUser" styleClass="btn-primary"/>
+                    <Button text="Create User" onAction="#onCreateUser" styleClass="btn-primary"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

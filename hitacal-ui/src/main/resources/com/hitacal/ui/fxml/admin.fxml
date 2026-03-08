@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hitacal.ui.AdminController"
+      styleClass="root-pane,admin-pane" spacing="14"
+      prefWidth="900" prefHeight="580">
+    <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <StackPane fx:id="turtleContainer" prefWidth="80" prefHeight="80"/>
+        <Label text="⚙ Admin Dashboard" styleClass="section-title" style="-fx-font-size:20;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="statusLabel" styleClass="form-label"/>
+    </HBox>
+    <Separator/>
+
+    <TableView fx:id="userTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colUsername"    text="Username"    prefWidth="160"/>
+            <TableColumn fx:id="colDisplayName" text="Display Name" prefWidth="200"/>
+            <TableColumn fx:id="colLastLogin"   text="Last Login"   prefWidth="200"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="12">
+        <Button text="📊 Export Excel for User" onAction="#onExportSelected" styleClass="primary-btn"/>
+        <Button text="🔑 Reset Password"         onAction="#onResetPassword"  styleClass="secondary-btn"/>
+    </HBox>
+</VBox>

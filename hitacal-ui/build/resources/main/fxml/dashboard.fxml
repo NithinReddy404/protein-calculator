@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hitacal.ui.DashboardController"
+            stylesheets="@../css/hitacal.css"
+            style="-fx-background-color: #F5ECD7;">
+
+    <!-- TOP HEADER -->
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="16">
+            <Label text="🐢  hitacal AI" styleClass="header-title"/>
+            <Label fx:id="userGreetLabel" text="Hello, Hita!" styleClass="header-subtitle" HBox.hgrow="ALWAYS"/>
+            <Label fx:id="dateLabel" text="" style="-fx-text-fill: #C49A6C; -fx-font-size:13px;"/>
+            <Button text="Goal Setup" onAction="#onGoalSetup" styleClass="btn-secondary" style="-fx-text-fill:white; -fx-border-color:white;"/>
+            <Button text="Export Excel" onAction="#onExport" styleClass="btn-secondary" style="-fx-text-fill:white; -fx-border-color:white;"/>
+            <Button text="Logout" onAction="#onLogout" styleClass="btn-secondary" style="-fx-text-fill:white; -fx-border-color:white;"/>
+        </HBox>
+    </top>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <HBox spacing="16" style="-fx-padding: 16;">
+
+            <!-- LEFT PANEL: Turtle + Streak + Motivation -->
+            <VBox spacing="14" minWidth="200" maxWidth="220" styleClass="turtle-panel">
+                <Canvas fx:id="turtleCanvas" width="190" height="160"/>
+                <Label fx:id="streakLabel" text="🔥 Streak: 0 days" styleClass="label-streak" wrapText="true"/>
+                <Separator/>
+                <Label fx:id="motivationLabel" text="You've got this! 🐢"
+                       styleClass="label-motivation" wrapText="true" maxWidth="190"/>
+            </VBox>
+
+            <!-- CENTER PANEL: Food Search + Log -->
+            <VBox spacing="12" HBox.hgrow="ALWAYS">
+
+                <!-- Food Search -->
+                <VBox styleClass="card" spacing="10">
+                    <Label text="Search Food" styleClass="label-section"/>
+                    <HBox spacing="8">
+                        <TextField fx:id="searchField" promptText="Type food name (e.g. chicken, apple)..."
+                                   HBox.hgrow="ALWAYS" onKeyReleased="#onSearchTyped"/>
+                        <Button text="Search" onAction="#onSearch" styleClass="btn-primary"/>
+                    </HBox>
+                    <ListView fx:id="searchResultsList" prefHeight="180" styleClass="list-view"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Serving (grams):" style="-fx-text-fill:#6B3A2A; -fx-font-weight:bold;"/>
+                        <TextField fx:id="servingField" text="100" prefWidth="80"/>
+                        <Button text="Add to Log +" onAction="#onAddFood" styleClass="btn-primary"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Today's Log -->
+                <VBox styleClass="card" spacing="10" VBox.vgrow="ALWAYS">
+                    <Label text="Today's Log" styleClass="label-section"/>
+                    <TableView fx:id="logTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colFood"    text="Food"         prefWidth="220"/>
+                            <TableColumn fx:id="colGrams"   text="Grams"        prefWidth="70"/>
+                            <TableColumn fx:id="colCal"     text="Kcal"         prefWidth="70"/>
+                            <TableColumn fx:id="colProt"    text="Protein (g)"  prefWidth="90"/>
+                            <TableColumn fx:id="colFat"     text="Fat (g)"      prefWidth="70"/>
+                        </columns>
+                    </TableView>
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button text="Remove Selected" onAction="#onRemoveEntry" styleClass="btn-danger"/>
+                        <TextField fx:id="notesField" promptText="Notes for today..." HBox.hgrow="ALWAYS"/>
+                        <Button text="💾 Save Day" onAction="#onSaveDay" styleClass="btn-primary"/>
+                    </HBox>
+                    <Label text="⚠ Calorie values are estimates (±10–30%). Not medical advice."
+                           styleClass="label-disclaimer"/>
+                </VBox>
+            </VBox>
+
+            <!-- RIGHT PANEL: Totals + Progress -->
+            <VBox spacing="14" minWidth="210" maxWidth="240">
+
+                <VBox styleClass="card" spacing="10">
+                    <Label text="Today's Totals" styleClass="label-section"/>
+                    <Label fx:id="totalCalLabel"  text="🔥 0 kcal" style="-fx-font-size:22px; -fx-font-weight:bold; -fx-text-fill:#3B1F0E;"/>
+                    <VBox spacing="4">
+                        <Label text="vs. Goal" style="-fx-text-fill:#6B3A2A; -fx-font-size:11px;"/>
+                        <ProgressBar fx:id="calProgress" maxWidth="Infinity" progress="0"/>
+                        <Label fx:id="calGoalLabel" text="Goal: — kcal" style="-fx-font-size:11px; -fx-text-fill:#888;"/>
+                    </VBox>
+                    <Separator/>
+                    <VBox spacing="4">
+                        <Label text="Protein" style="-fx-text-fill:#6B3A2A; -fx-font-weight:bold;"/>
+                        <Label fx:id="proteinLabel" text="0 g" style="-fx-text-fill:#3B1F0E;"/>
+                        <ProgressBar fx:id="proteinProgress" maxWidth="Infinity" progress="0"/>
+                    </VBox>
+                    <VBox spacing="4">
+                        <Label text="Fat" style="-fx-text-fill:#6B3A2A; -fx-font-weight:bold;"/>
+                        <Label fx:id="fatLabel" text="0 g" style="-fx-text-fill:#3B1F0E;"/>
+                        <ProgressBar fx:id="fatProgress" maxWidth="Infinity" progress="0"/>
+                    </VBox>
+                    <VBox spacing="4">
+                        <Label text="Carbs" style="-fx-text-fill:#6B3A2A; -fx-font-weight:bold;"/>
+                        <Label fx:id="carbLabel" text="0 g" style="-fx-text-fill:#3B1F0E;"/>
+                        <ProgressBar fx:id="carbProgress" maxWidth="Infinity" progress="0"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Goal Progress Card -->
+                <VBox styleClass="card" spacing="8" fx:id="goalCard">
+                    <Label text="Goal Progress" styleClass="label-section"/>
+                    <Label fx:id="goalWeightLabel"  text="Target: —" style="-fx-text-fill:#3B1F0E;"/>
+                    <ProgressBar fx:id="weightProgress" maxWidth="Infinity" progress="0"/>
+                    <Label fx:id="projectedDateLabel" text="Projected: —" style="-fx-font-size:11px; -fx-text-fill:#6B3A2A;"/>
+                    <Button text="Update Goal" onAction="#onGoalSetup" styleClass="btn-secondary" maxWidth="Infinity"/>
+                </VBox>
+
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hitacal.ui.GoalSetupController"
+      styleClass="root-pane,goal-pane" spacing="14"
+      prefWidth="700" prefHeight="620">
+    <padding><Insets top="24" right="32" bottom="24" left="32"/></padding>
+
+    <Label text="🎯 Set Your Goal" styleClass="section-title" style="-fx-font-size:20;"/>
+    <Separator/>
+
+    <GridPane hgap="16" vgap="12">
+        <Label text="Starting weight (kg):" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form-label"/>
+        <TextField fx:id="startWeightField" promptText="e.g. 75.0" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="hitacal-input"/>
+
+        <Label text="Target weight (kg):" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form-label"/>
+        <TextField fx:id="targetWeightField" promptText="e.g. 65.0" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="hitacal-input"/>
+
+        <Label text="Height (cm, optional):" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form-label"/>
+        <TextField fx:id="heightField" promptText="e.g. 165" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="hitacal-input"/>
+
+        <Label text="Age (optional):" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="form-label"/>
+        <TextField fx:id="ageField" promptText="e.g. 28" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="hitacal-input"/>
+
+        <Label text="Sex:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="form-label"/>
+        <HBox GridPane.rowIndex="4" GridPane.columnIndex="1" spacing="12">
+            <RadioButton fx:id="femaleRadio" text="Female" selected="true"/>
+            <RadioButton text="Male"/>
+        </HBox>
+
+        <Label text="Weekly loss rate:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="form-label"/>
+        <ComboBox fx:id="rateCombo" GridPane.rowIndex="5" GridPane.columnIndex="1" maxWidth="300"/>
+
+        <Label text="Activity level:" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="form-label"/>
+        <ComboBox fx:id="activityCombo" GridPane.rowIndex="6" GridPane.columnIndex="1" maxWidth="300"/>
+    </GridPane>
+
+    <Button text="Preview Projection" onAction="#onPreview" styleClass="secondary-btn"/>
+
+    <Separator/>
+    <Label fx:id="projectionLabel" styleClass="projection-label" wrapText="true"/>
+    <Label fx:id="bmiLabel" styleClass="bmi-label" wrapText="true"/>
+    <Label fx:id="warningLabel" text="⚠ Rate exceeds safe guideline (1 kg/week). Consult a healthcare professional."
+           styleClass="warning-label" wrapText="true" visible="false"/>
+
+    <Label text="BMI is a population-level tool. Consult a healthcare professional for personalized advice."
+           styleClass="disclaimer-label" wrapText="true"/>
+
+    <Region VBox.vgrow="ALWAYS"/>
+    <Button fx:id="saveBtn" text="Save Goal" onAction="#onSave" styleClass="primary-btn"/>
+</VBox>

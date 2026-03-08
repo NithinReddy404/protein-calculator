@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hitacal.ui.DashboardController"
+            styleClass="root-pane" prefWidth="1100" prefHeight="720">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="8" right="16" bottom="8" left="16"/></padding>
+            <Label text="🐢 hitacal AI" styleClass="app-title"/>
+            <Label fx:id="greetingLabel" styleClass="greeting-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="goalBtn" text="🎯 Set Goal" onAction="#onSetGoal" styleClass="secondary-btn"/>
+            <Button fx:id="adminBtn" text="⚙ Admin" onAction="#onAdmin" styleClass="secondary-btn"/>
+            <Button fx:id="exportBtn" text="📊 Export Excel" onAction="#onExport" styleClass="primary-btn"/>
+        </HBox>
+    </top>
+
+    <!-- MAIN 3-COLUMN LAYOUT -->
+    <center>
+        <HBox spacing="0">
+
+            <!-- LEFT PANEL: Turtle + streak + motivation -->
+            <VBox styleClass="left-panel" prefWidth="240" alignment="TOP_CENTER" spacing="16">
+                <padding><Insets top="20" right="12" bottom="20" left="12"/></padding>
+                <StackPane fx:id="turtleContainer" prefWidth="180" prefHeight="180"/>
+                <Label fx:id="dateLabel" styleClass="date-label" wrapText="true" alignment="CENTER"/>
+                <Label fx:id="streakLabel" styleClass="streak-label"/>
+                <Separator/>
+                <Label fx:id="motivationLabel" styleClass="motivation-label"
+                       wrapText="true" alignment="CENTER"/>
+                <Separator/>
+                <Label fx:id="calorieTargetLabel" styleClass="goal-label" wrapText="true"/>
+                <Label fx:id="goalProjectionLabel" styleClass="goal-label" wrapText="true"/>
+            </VBox>
+
+            <!-- CENTER PANEL: Food search + entries -->
+            <VBox styleClass="center-panel" HBox.hgrow="ALWAYS" spacing="10">
+                <padding><Insets top="16" right="12" bottom="16" left="12"/></padding>
+
+                <Label text="Search Food" styleClass="section-title"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchField" promptText="Type food name (min 2 chars)..."
+                               styleClass="hitacal-input" HBox.hgrow="ALWAYS"/>
+                </HBox>
+                <ListView fx:id="searchResultsList" prefHeight="130" styleClass="food-list"/>
+
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <TextField fx:id="servingField" promptText="Grams (e.g. 150)"
+                               styleClass="hitacal-input" prefWidth="130"/>
+                    <Button text="+ Add" onAction="#onAddEntry" styleClass="primary-btn"/>
+                </HBox>
+                <Label fx:id="caloriesPreviewLabel" styleClass="preview-label"/>
+
+                <Separator/>
+                <Label text="Today's Entries" styleClass="section-title"/>
+                <ListView fx:id="entriesList" VBox.vgrow="ALWAYS" styleClass="entries-list"/>
+                <Button text="🗑 Remove selected" onAction="#onDeleteEntry" styleClass="danger-btn"/>
+
+                <Separator/>
+                <Label text="Notes for today" styleClass="section-title"/>
+                <TextArea fx:id="notesField" prefHeight="60" promptText="How did today go?"
+                          styleClass="hitacal-input"/>
+                <Button text="Save Notes" onAction="#onSaveNotes" styleClass="secondary-btn"/>
+
+                <Label text="⚠ Values are USDA estimates (±10–30%). Not medical advice."
+                       styleClass="disclaimer-label" wrapText="true"/>
+            </VBox>
+
+            <!-- RIGHT PANEL: Totals + progress -->
+            <VBox styleClass="right-panel" prefWidth="240" spacing="14">
+                <padding><Insets top="20" right="16" bottom="20" left="12"/></padding>
+                <Label text="Today's Totals" styleClass="section-title"/>
+
+                <Label text="Calories" styleClass="nutrient-label"/>
+                <Label fx:id="caloriesTotalLabel" styleClass="nutrient-value" text="0 kcal"/>
+                <ProgressBar fx:id="caloriesBar" prefWidth="200" progress="0" styleClass="cal-bar"/>
+
+                <Label text="Protein" styleClass="nutrient-label"/>
+                <Label fx:id="proteinTotalLabel" styleClass="nutrient-value" text="0 g"/>
+                <ProgressBar fx:id="proteinBar" prefWidth="200" progress="0" styleClass="protein-bar"/>
+
+                <Label text="Fat" styleClass="nutrient-label"/>
+                <Label fx:id="fatTotalLabel" styleClass="nutrient-value" text="0 g"/>
+
+                <Label text="Carbs" styleClass="nutrient-label"/>
+                <Label fx:id="carbTotalLabel" styleClass="nutrient-value" text="0 g"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
