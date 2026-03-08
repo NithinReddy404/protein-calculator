@@ -134,6 +134,9 @@ Each file contains:
 | SLEEPING  | App idle > 5 min |
 | WORRIED   | 20%+ over calorie goal |
 
-The below is the UI 
+This is the UI 
 
 <img width="716" height="829" alt="image" src="https://github.com/user-attachments/assets/796d618a-2e68-40ad-8139-5263317f54a8" />
+<img width="1919" height="1079" alt="Screenshot 2026-03-07 220926" src="https://github.com/user-attachments/assets/45c3968c-765f-4371-88f6-ab56f3d1f8f3" />
+<img width="1919" height="1079" alt="Screenshot 2026-03-07 220946" src="https://github.com/user-attachments/assets/aac4b4dd-2900-40e4-8292-b01d74b15d2a" />
+
